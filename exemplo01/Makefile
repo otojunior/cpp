@@ -9,8 +9,8 @@
 
 CC = g++
 FLAGS = -O2
-SOURCES = libs/*.cpp *.cpp
-EXECUTABLE = exemplo01
+SOURCES = src/libs/*.cpp src/*.cpp
+EXECUTABLE = bin/exemplo01
 
 all:
 	$(CC) $(FLAGS) -o $(EXECUTABLE) $(SOURCES)
