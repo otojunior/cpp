@@ -24,7 +24,7 @@ FLAGS = -O2 -Wall
 all:
 	$(CXX) $(FLAGS) -c -o $(TARGET_LIBS)/Calculadora.o $(SOURCE_LIBS)/Calculadora.cpp
 	$(AR) crv $(TARGET_LIBS)/libcalc.lib $(TARGET_LIBS)/Calculadora.o
-	$(CXX) $(FLAGS) -o $(TARGET)/exemplo03 $(SOURCE)/exemplo03.cpp $(TARGET_LIBS)/libcalc.lib -lm
+	$(CXX) $(FLAGS) -o $(TARGET)/exemplo03 $(SOURCE)/main.cpp $(TARGET_LIBS)/libcalc.lib -lm
 	
 clean:
 	rm -f bin/libs/*.o
@@ -32,4 +32,6 @@ clean:
 	rm -f bin/*.exe
 	
 test:
-	$(CXX) -I $(GTEST)/include -o $(TARGET)/test $(SOURCE_LIBS)/Calculadora.cpp $(SOURCE_LIBS)/CalculadoraTest.cpp $(SOURCE_LIBS)/libgtest.a $(SOURCE_LIBS)/libgtest_main.a -lm
+	$(CXX) -I $(GTEST)/include -o $(TARGET)/test \
+		$(SOURCE_LIBS)/Calculadora.cpp $(SOURCE_LIBS)/CalculadoraTest.cpp \
+		$(SOURCE_LIBS)/libgtest.a $(SOURCE_LIBS)/libgtest_main.a -lm
