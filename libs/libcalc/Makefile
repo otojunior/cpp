@@ -6,6 +6,9 @@
 # Syntax:
 #	target: dependencies
 #	[tab] system command
+#
+# PRÉ-REQUISITO: Biblioteca estática do Google Test Framework criada.
+# $<GTEST>/make> make
 
 # Paths específicos
 GTEST = d:/cpp/tools/gtest-1.7.0
@@ -28,5 +31,4 @@ test:
 	$(CXX) $(FLAGS) -I $(GTEST)/include -o run_unit_tests \
 		Calculadora.cpp \
 		CalculadoraTest.cpp \
-		libgtest.static_library \
-		libgtest_main.static_library -lm
+		$(GTEST)/make/gtest_main.a -lm
