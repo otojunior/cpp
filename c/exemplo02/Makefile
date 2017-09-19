@@ -19,9 +19,9 @@ initrelease:
 build:
 	@echo "[MAKE] (building...)"
 	rm -rf $(OUTPUT)/*
-	$(CC) $(CFLAGS) -c src/pessoa.c -o $(OUTPUT)/pessoa.o
-	$(CC) $(CFLAGS) -c src/exemplo01.c -o $(OUTPUT)/exemplo01.o
-	$(CC) $(OUTPUT)/*.o -o $(OUTPUT)/exemplo01
+	$(CC) $(CFLAGS) -c src/calculadora.c -o $(OUTPUT)/calculadora.o
+	$(CC) $(CFLAGS) -c src/exemplo02.c -o $(OUTPUT)/exemplo02.o
+	$(CC) $(OUTPUT)/*.o -o $(OUTPUT)/exemplo02
 	
 debug: initdebug build
 
