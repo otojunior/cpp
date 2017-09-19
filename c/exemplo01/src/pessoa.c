@@ -13,29 +13,29 @@
 /*
  *
  */
-void pessoa_init(PESSOA*_pessoa, char* _nome, int _idade, double _altura, double _peso) {
-	strcpy(_pessoa->nome, _nome);
-	_pessoa->idade = _idade;
-	_pessoa->altura = _altura;
-	_pessoa->peso = _peso;
+void pessoa_init(pessoa_t* pessoa, char* nome, int idade, double altura, double peso) {
+	strcpy(pessoa->nome, nome);
+	pessoa->idade = idade;
+	pessoa->altura = altura;
+	pessoa->peso = peso;
 }
 
 /*
  *
  */
-void pessoa_tostring(const PESSOA* _pessoa, char* _string) {
+void pessoa_tostring(const pessoa_t* pessoa, char* str) {
 	char str_idade[5] = "";
 	char str_altura[5] = "";
 	char str_peso[5] = "";
 
-	itoa(_pessoa->idade, str_idade, 10);
-	snprintf(str_altura, 5, "%f", _pessoa->altura);
-	snprintf(str_peso, 5, "%f", _pessoa->peso);
+	itoa(pessoa->idade, str_idade, 10);
+	snprintf(str_altura, 5, "%f", pessoa->altura);
+	snprintf(str_peso, 5, "%f", pessoa->peso);
 
 	char str_pessoa[100] = "";
 	strcpy(str_pessoa, "");
 	strcat(str_pessoa, "[nome=");
-	strcat(str_pessoa, _pessoa->nome);
+	strcat(str_pessoa, pessoa->nome);
 	strcat(str_pessoa, ",idade=");
 	strcat(str_pessoa, str_idade);
 	strcat(str_pessoa, ",altura=");
@@ -43,5 +43,5 @@ void pessoa_tostring(const PESSOA* _pessoa, char* _string) {
 	strcat(str_pessoa, ",peso=");
 	strcat(str_pessoa, str_peso);
 	strcat(str_pessoa, "]");
-	strcpy(_string, str_pessoa);
+	strcpy(str, str_pessoa);
 }
