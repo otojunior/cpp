@@ -1,24 +1,29 @@
 CC				=	gcc
-CFLAGS_DEBUG	=	-O0 -g3 -Wall
-CFLAGS_RELEASE	=	-O3 -Wall
-OUTPUT_DEBUG	=	Debug
-OUTPUT_RELEASE	=	Release
 
-all: makedebug makerelease
+all:
+	make makedebug
+	make makerelease
 
-makedebug:
-	@echo "[MAKE] (making debug...)"
-	rm -rf $(OUTPUT_DEBUG)/*
-	$(CC) $(CFLAGS_DEBUG) -c src/pessoa.c -o $(OUTPUT_DEBUG)/pessoa.o
-	$(CC) $(CFLAGS_DEBUG) -c src/exemplo01.c -o $(OUTPUT_DEBUG)/exemplo01.o
-	$(CC) $(OUTPUT_DEBUG)/*.o -o $(OUTPUT_DEBUG)/exemplo01
+initdebug:
+	@echo "[MAKE] (init debug...)"
+	$(eval CFLAGS := -O0 -g3 -Wall)
+	$(eval OUTPUT = Debug)
+	
+initrelease:
+	@echo "[MAKE] (init release...)"
+	$(eval CFLAGS := -O3 -Wall)
+	$(eval OUTPUT = Release)
+	
+build:
+	@echo "[MAKE] (construindo...)"
+	rm -rf $(OUTPUT)/*
+	$(CC) $(CFLAGS) -c src/pessoa.c -o $(OUTPUT)/pessoa.o
+	$(CC) $(CFLAGS) -c src/exemplo01.c -o $(OUTPUT)/exemplo01.o
+	$(CC) $(OUTPUT)/*.o -o $(OUTPUT)/exemplo01
+	
+makedebug: initdebug build
 
-makerelease:
-	@echo "[MAKE] (making release...)"
-	rm -rf $(OUTPUT_RELEASE)/*
-	$(CC) $(CFLAGS_RELEASE) -c src/pessoa.c -o $(OUTPUT_RELEASE)/pessoa.o
-	$(CC) $(CFLAGS_RELEASE) -c src/exemplo01.c -o $(OUTPUT_RELEASE)/exemplo01.o
-	$(CC) $(OUTPUT_RELEASE)/*.o -o $(OUTPUT_RELEASE)/exemplo01
+makerelease: initrelease build
 	
 clean:
 	@echo "[MAKE] (cleaning...)"
