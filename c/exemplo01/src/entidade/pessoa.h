@@ -21,7 +21,7 @@ typedef struct TPessoa {
 /*
  * Definição das funções
  */
-extern PESSOA pessoa_init(char*, int, double, double);
-extern void pessoa_tostring(char*, PESSOA);
+extern void pessoa_init(PESSOA*, char*, int, double, double);
+extern void pessoa_tostring(const PESSOA*, char*);
 
 #endif /* ENTIDADE_PESSOA_H_ */
