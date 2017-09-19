@@ -1,8 +1,8 @@
 CC				=	gcc
 
 all:
-	make makedebug
-	make makerelease
+	make debug
+	make release
 
 initdebug:
 	@echo "[MAKE] (init debug...)"
@@ -15,17 +15,17 @@ initrelease:
 	$(eval OUTPUT = Release)
 	
 build:
-	@echo "[MAKE] (construindo...)"
+	@echo "[MAKE] (building...)"
 	rm -rf $(OUTPUT)/*
 	$(CC) $(CFLAGS) -c src/pessoa.c -o $(OUTPUT)/pessoa.o
 	$(CC) $(CFLAGS) -c src/exemplo01.c -o $(OUTPUT)/exemplo01.o
 	$(CC) $(OUTPUT)/*.o -o $(OUTPUT)/exemplo01
 	
-makedebug: initdebug build
+debug: initdebug build
 
-makerelease: initrelease build
+release: initrelease build
 	
 clean:
 	@echo "[MAKE] (cleaning...)"
-	rm -rf $(OUTPUT_DEBUG)/*
-	rm -rf $(OUTPUT_RELEASE)/*
+	rm -rf Debug/*
+	rm -rf Release/*
