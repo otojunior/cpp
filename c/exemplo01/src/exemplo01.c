@@ -21,7 +21,7 @@
 /**
  * Programa principal.
  */
-int main(void) {
+int main(int argc, char** argv) {
 	puts("Exemplo 01"); /* prints Exemplo 01 */
 
 	pessoa_t pessoas[TAM];

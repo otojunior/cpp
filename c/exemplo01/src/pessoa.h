@@ -9,7 +9,7 @@
 #define PESSOA_H_
 
 /*
- * Definição da entidade.
+ * definição da entidade.
  */
 typedef struct pessoa_t {
 	char nome[30];
@@ -19,9 +19,9 @@ typedef struct pessoa_t {
 } pessoa_t;
 
 /*
- * Definição das funções
+ * definição das funções
  */
 extern void pessoa_init(pessoa_t*, char*, int, double, double);
 extern void pessoa_tostring(const pessoa_t*, char*);
 
-#endif /* ENTIDADE_PESSOA_H_ */
+#endif /* PESSOA_H_ */
